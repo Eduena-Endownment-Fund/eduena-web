@@ -4,24 +4,32 @@ export default function Home() {
   return (
     <div className="min-h-screen flex flex-col">
       {/* Header */}
-      <header className="p-4 shadow-md">
-        <div className="container mx-auto px-48 flex justify-between items-center">
+      <header className="p-4 shadow-md bg-gradient-to-r from-blue-500 to-purple-600 text-white">
+        <div className="container mx-auto px-4 flex justify-between items-center">
           <div className="flex items-center">
-            <h1 className="text-2xl font-bold">Eduena</h1>
+            <h1 className="text-2xl font-semibold">Eduena</h1>
           </div>
-          <nav className="flex items-center space-x-4">
-            <a href="#features" className="hover:underline">
+          <nav className="flex items-center space-x-6">
+            <a href="#features" className="text-lg">
               Features
             </a>
-            <a href="#how-it-works" className="hover:underline">
+            <a href="#how-it-works" className="text-lg">
               How It Works
             </a>
-            <a href="#contact" className="hover:underline">
+            <a href="#contact" className="text-lg">
               Contact
             </a>
             <a
+              href="https://example.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-lg"
+            >
+              Docs
+            </a>
+            <a
               href="/app"
-              className="bg-blue-600 text-white px-4 py-2 rounded shadow-md hover:bg-blue-700 font-bold"
+              className="bg-white text-blue-600 px-4 py-2 rounded shadow-md hover:bg-gray-200 font-semibold"
             >
               Launch App
             </a>
@@ -39,7 +47,9 @@ export default function Home() {
           transparently and securely.
         </p>
         <a
-          href="#features"
+          href="https://example.com"
+          target="_blank"
+          rel="noopener noreferrer"
           className="bg-white text-blue-600 px-6 py-3 rounded-full shadow-lg hover:bg-gray-200 transition duration-300"
         >
           Learn More
