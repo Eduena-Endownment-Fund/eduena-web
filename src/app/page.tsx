@@ -28,7 +28,7 @@ export default function Home() {
               Docs
             </a>
             <a
-              href="/app"
+              href="/endowment-fund"
               className="bg-white text-blue-600 px-4 py-2 rounded shadow-md hover:bg-gray-200 font-semibold"
             >
               Launch App
