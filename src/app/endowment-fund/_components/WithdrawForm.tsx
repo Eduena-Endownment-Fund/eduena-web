@@ -26,6 +26,8 @@ export default function WithdrawForm() {
                   src="img/sUSDe.svg"
                   alt="sUSDe Logo"
                   className="w-6 h-6 flex-shrink-0 ml-2"
+                  width={24}
+                  height={24}
                 />
                 <span className="ml-2 flex-shrink-0">sUSDe</span>
               </div>

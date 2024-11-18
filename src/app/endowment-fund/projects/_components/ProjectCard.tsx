@@ -21,10 +21,11 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
         <Image
           shadow="sm"
           radius="lg"
-          width="100%"
+          width={24}
+          height={24}
           alt={project.projectName}
           className="w-full object-cover h-[140px]"
-          src={project.img} // Assuming you have an img key in your project object
+          src={project.img}
         />
         <h2 className="text-2xl font-bold mt-4">{project.projectName}</h2>
         <p className="mt-2 text-gray-700">{project.description}</p>
