@@ -21,7 +21,6 @@ export default function DepositForm() {
   return (
     <form className="bg-white rounded-lg shadow-lg p-6" onSubmit={approveUSDe}>
       <div>
-        <div className="flex w-full flex-wrap md:flex-nowrap gap-4"></div>
         <div className="flex items-center">
           <div className="flex-grow">
             <div className="flex items-center">
