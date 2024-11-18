@@ -1,4 +1,4 @@
-import Image from "next/image";
+import HeroSection from "@/components/HeroSection";
 
 export default function Home() {
   return (
@@ -38,13 +38,10 @@ export default function Home() {
       </header>
 
       {/* Hero Section */}
-      <section className="flex flex-col items-center justify-center text-center p-16 bg-gradient-to-r from-blue-500 to-purple-600 text-white">
-        <h2 className="text-5xl font-extrabold mb-6">
-          Decentralized Endowment Fund Management on sUSDe
-        </h2>
-        <p className="text-xl mb-10 max-w-3xl">
-          Connecting donors, organizations, and beneficiaries transparently and securely.
-        </p>
+      <HeroSection
+        title="Decentralized Endowment Fund Management on sUSDe"
+        description="Connecting donors, organizations, and beneficiaries transparently and securely."
+      >
         <a
           href="https://example.com"
           target="_blank"
@@ -53,7 +50,7 @@ export default function Home() {
         >
           Learn More
         </a>
-      </section>
+      </HeroSection>
 
       {/* Features Section */}
       <section id="features" className="p-8">
@@ -64,9 +61,7 @@ export default function Home() {
             <p>Use the yield to fund various initiatives.</p>
           </div>
           <div className="p-6 rounded shadow-md bg-white">
-            <h4 className="text-xl font-semibold mb-2">
-              Initiative Selection
-            </h4>
+            <h4 className="text-xl font-semibold mb-2">Initiative Selection</h4>
             <p>
               Beneficiaries can choose initiatives offered by organizations.
             </p>
@@ -74,7 +69,8 @@ export default function Home() {
           <div className="p-6 rounded shadow-md bg-white">
             <h4 className="text-xl font-semibold mb-2">Automated Process</h4>
             <p>
-              Automated application and distribution process using smart contracts.
+              Automated application and distribution process using smart
+              contracts.
             </p>
           </div>
           <div className="p-6 rounded shadow-md bg-white">
@@ -91,7 +87,8 @@ export default function Home() {
           <div className="p-6 rounded shadow-md">
             <h4 className="text-xl font-semibold mb-2">Staking by Donors</h4>
             <p>
-              Donors stake sUSDe through the Eduena platform. The collected funds are managed as an endowment and invested to generate yield.
+              Donors stake sUSDe through the Eduena platform. The collected
+              funds are managed as an endowment and invested to generate yield.
             </p>
           </div>
           <div className="p-6 rounded shadow-md">
@@ -99,15 +96,18 @@ export default function Home() {
               Fund Distribution Based on Yield
             </h4>
             <p>
-              The yield from the endowment is distributed to beneficiaries who have passed the selection process. This distribution is automated by smart contracts according to a predetermined schedule.
+              The yield from the endowment is distributed to beneficiaries who
+              have passed the selection process. This distribution is automated
+              by smart contracts according to a predetermined schedule.
             </p>
           </div>
           <div className="p-6 rounded shadow-md">
-            <h4 className="text-xl font-semibold mb-2">
-              Application Process
-            </h4>
+            <h4 className="text-xl font-semibold mb-2">Application Process</h4>
             <p>
-              Beneficiaries register and apply for the desired initiatives. After passing KYC verification, the application is processed and verified by smart contracts. Eligible beneficiaries receive funds according to the applicable terms.
+              Beneficiaries register and apply for the desired initiatives.
+              After passing KYC verification, the application is processed and
+              verified by smart contracts. Eligible beneficiaries receive funds
+              according to the applicable terms.
             </p>
           </div>
           <div className="p-6 rounded shadow-md">
@@ -115,7 +115,9 @@ export default function Home() {
               Reporting and Audit Reports
             </h4>
             <p>
-              All transactions and fund usage are transparently displayed on the platform dashboard. Eduena also provides audit reports that can be accessed by donors to check fund usage.
+              All transactions and fund usage are transparently displayed on the
+              platform dashboard. Eduena also provides audit reports that can be
+              accessed by donors to check fund usage.
             </p>
           </div>
         </div>
