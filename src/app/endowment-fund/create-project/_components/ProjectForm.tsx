@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button, Input, Select, SelectItem, Text } from "@nextui-org/react";
+import { Button, Input, Select, SelectItem } from "@nextui-org/react";
 
 const categories = [
   { key: "healthcare", label: "Healthcare" },
@@ -22,14 +22,12 @@ const ProjectForm = () => {
   const [impact, setImpact] = useState("");
   const [fundingTimeline, setFundingTimeline] = useState("");
   const [region, setRegion] = useState("");
-  const [status, setStatus] = useState("Pending");
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: { preventDefault: () => void; }) => {
     e.preventDefault();
     // Simulate KYC verification and project approval process
     setTimeout(() => {
-      setStatus("Approved");
       setIsSubmitted(true);
       setProjectName("");
       setDescription("");
@@ -152,12 +150,12 @@ const ProjectForm = () => {
               fullWidth
             />
           </div>
-          <Button type="submit" color="primary" auto>
+          <Button type="submit" color="primary">
             Submit
           </Button>
         </form>
       ) : (
-        <Text h3>Submitting your project...</Text>
+        <p>Submitting your project...</p>
       )}
     </div>
   );

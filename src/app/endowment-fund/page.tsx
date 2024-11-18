@@ -8,12 +8,7 @@ import InformationSection from "./_components/InformationSection";
 import HeroSection from "@/components/HeroSection";
 
 export default function EndowmentFundPage() {
-  const [amount, setAmount] = useState("");
   const [activeTab, setActiveTab] = useState("deposit");
-  const [depositAmount, setDepositAmount] = useState("");
-  const [receiveAmount, setReceiveAmount] = useState("");
-  const [currentDeposit, setCurrentDeposit] = useState(1000); // Example current deposit amount
-  const [currentWithdraw, setCurrentWithdraw] = useState(500); // Example current withdrawable amount
 
   return (
     <>
@@ -38,19 +33,11 @@ export default function EndowmentFundPage() {
 
           {activeTab === "deposit" && (
             <DepositForm
-              amount={amount}
-              setAmount={setAmount}
-              depositAmount={depositAmount}
-              receiveAmount={receiveAmount}
             />
           )}
 
           {activeTab === "withdraw" && (
             <WithdrawForm
-              currentWithdraw={currentWithdraw}
-              receiveAmount={receiveAmount}
-              setReceiveAmount={setReceiveAmount}
-              depositAmount={depositAmount}
             />
           )}
         </div>

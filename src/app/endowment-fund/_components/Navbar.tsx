@@ -3,7 +3,6 @@
 import {
   Disclosure,
   DisclosureButton,
-  DisclosurePanel,
 } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
@@ -18,7 +17,7 @@ const navigation = [
   { name: "Dashboard", href: "/endowment-fund/dashboard" },
 ];
 
-function classNames(...classes) {
+function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
 }
 

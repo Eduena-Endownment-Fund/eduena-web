@@ -1,29 +1,11 @@
-import { useAccount, useWriteContract } from "wagmi";
-import { abi } from "@/abis/EndowmentFund";
-import { useSendTransaction } from "wagmi";
-import { parseEther } from "viem";
 import { Button } from "@nextui-org/button";
 import { Input } from "@nextui-org/input";
+import Image from 'next/image';
 
-export default function WithdrawForm({
-  amount,
-  setAmount,
-  stakeAmount,
-  receiveAmount,
-}) {
-  const { data: hash, writeContract } = useWriteContract();
+export default function WithdrawForm() {
 
   async function submit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const formData = new FormData(e.target as HTMLFormElement);
-    const amount = formData.get("amount") as string;
-
-    writeContract({
-      address: "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
-      abi,
-      functionName: "stake",
-      args: [BigInt(amount)],
-    });
   }
 
   return (
@@ -38,10 +20,9 @@ export default function WithdrawForm({
                 placeholder=""
                 id="amount"
                 name="amount"
-                onChange={(e) => setAmount(e.target.value)}
               />
               <div className="flex w-48">
-                <img
+                <Image
                   src="img/sUSDe.svg"
                   alt="sUSDe Logo"
                   className="w-6 h-6 flex-shrink-0 ml-2"
@@ -56,9 +37,8 @@ export default function WithdrawForm({
         </p>
       </div>
       <div className="mt-4 p-4 bg-gray-100 rounded-lg mb-4">
-        {hash && <div>Transaction Hash: {hash}</div>}
         <p className="text-gray-600">
-          You receive: <span className="font-bold">{receiveAmount}</span>
+          You receive: <span className="font-bold">123</span>
         </p>
       </div>
       <Button color="primary" type="submit" className="w-full block mt-4">

@@ -6,7 +6,7 @@ const ClaimForm = () => {
   const [amount, setAmount] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: { preventDefault: () => void; }) => {
     e.preventDefault();
     // Simulate claim process
     setTimeout(() => {
@@ -51,7 +51,7 @@ const ClaimForm = () => {
               fullWidth
             />
           </div>
-          <Button type="submit" color="primary" auto>
+          <Button type="submit" color="primary">
             Claim Funds
           </Button>
         </form>
