@@ -1,3 +1,4 @@
+import { HexAddress } from "@/types/types";
 import {
   Modal,
   ModalContent,
@@ -6,11 +7,14 @@ import {
   ModalFooter,
   Button,
   useDisclosure,
-  Input
+  Input,
 } from "@nextui-org/react";
 import Image from "next/image";
+import { useAccount } from "wagmi";
+import GetContractBalance from "./GetContractBalance";
 
 export default function DepositForm() {
+  const account = useAccount();
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
   async function approveUSDe(e: React.FormEvent<HTMLFormElement>) {
@@ -43,9 +47,13 @@ export default function DepositForm() {
               </div>
             </div>
 
-            <p className="text-gray-600 mt-2 text-right text-sm">
-              <span className="font-bold">Balance: </span>
-            </p>
+            {account.status === "connected" && (
+              <p className="text-gray-600 mt-2 text-right text-sm">
+                <span className="font-bold">
+                  Balance: <GetContractBalance address={account.address} contract={process.env.NEXT_PUBLIC_USDE_CONTRACT_ADDRESS! as HexAddress} />
+                </span>
+              </p>
+            )}
 
             <div className="border-t border-gray-300 mt-4"></div>
 
@@ -68,9 +76,13 @@ export default function DepositForm() {
               </div>
             </div>
 
-            <p className="text-gray-600 mt-2 text-right text-sm">
-              <span className="font-bold">Balance: </span>
-            </p>
+            {account.status === "connected" && (
+              <p className="text-gray-600 mt-2 text-right text-sm">
+                <span className="font-bold">
+                  Balance: <GetContractBalance address={account.address} contract={process.env.NEXT_PUBLIC_SUSDE_CONTRACT_ADDRESS! as HexAddress} />
+                </span>
+              </p>
+            )}
           </div>
         </div>
       </div>

@@ -1,9 +1,12 @@
 import { Button } from "@nextui-org/button";
 import { Input } from "@nextui-org/input";
-import Image from 'next/image';
+import Image from "next/image";
+import GetContractBalance from "./GetContractBalance";
+import { useAccount } from "wagmi";
+import { HexAddress } from "@/types/types";
 
 export default function WithdrawForm() {
-
+  const account = useAccount();
   async function submit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
   }
@@ -34,9 +37,19 @@ export default function WithdrawForm() {
             </div>
           </div>
         </div>
-        <p className="text-gray-600 mt-2 text-right text-sm">
-          <span className="font-bold">Balance: 123</span>
-        </p>
+        {account.status === "connected" && (
+          <p className="text-gray-600 mt-2 text-right text-sm">
+            <span className="font-bold">
+              Balance:{" "}
+              <GetContractBalance
+                address={account.address}
+                contract={
+                  process.env.NEXT_PUBLIC_SUSDE_CONTRACT_ADDRESS! as HexAddress
+                }
+              />
+            </span>
+          </p>
+        )}
       </div>
       <div className="mt-4 p-4 bg-gray-100 rounded-lg mb-4">
         <p className="text-gray-600">
