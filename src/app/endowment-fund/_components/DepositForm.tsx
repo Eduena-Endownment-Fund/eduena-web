@@ -22,7 +22,7 @@ import { abi as USDeAbi } from "@/abis/USDe";
 import { abi as StakedUSDeAbi } from "@/abis/StakedUSDe";
 import { abi as EduenaAbi } from "@/abis/Eduena";
 import { formatEther, parseEther } from "viem";
-import React, { useState, useCallback, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { debounce } from "lodash";
 
 export default function DepositForm() {
@@ -139,45 +139,6 @@ export default function DepositForm() {
                       contract={
                         process.env
                           .NEXT_PUBLIC_USDE_CONTRACT_ADDRESS! as HexAddress
-                      }
-                    />
-                  </span>
-                </p>
-              )}
-
-              <div className="border-t border-gray-300 mt-4"></div>
-
-                <div className="flex items-center mt-2">
-                  <Input
-                    isDisabled
-                    type="number"
-                    label="You Receive"
-                    className="max-w-xs"
-                    value={
-                      receiveAmount ? Math.floor(Number(formatEther(BigInt(receiveAmount)))).toString() : ""
-                    }
-                  />
-                  <div className="flex w-48">
-                    <Image
-                      src="img/sUSDe.svg"
-                      alt="sUSDe Logo"
-                      className="w-6 h-6 flex-shrink-0 ml-2"
-                      width={24}
-                      height={24}
-                    />
-                    <span className="ml-2 flex-shrink-0">sUSDe</span>
-                  </div>
-                </div>
-
-              {account.status === "connected" && (
-                <p className="text-gray-600 mt-2 text-right text-sm">
-                  <span className="font-bold">
-                    Balance:{" "}
-                    <GetContractBalance
-                      address={account.address}
-                      contract={
-                        process.env
-                          .NEXT_PUBLIC_SUSDE_CONTRACT_ADDRESS! as HexAddress
                       }
                     />
                   </span>

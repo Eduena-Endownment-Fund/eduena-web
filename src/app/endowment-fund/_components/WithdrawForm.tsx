@@ -14,7 +14,14 @@ import { abi as StakedUSDe } from "@/abis/StakedUSDe";
 import { BaseError, parseEther, formatEther } from "viem";
 import { useState, useEffect } from "react";
 import { debounce } from "lodash";
-import { Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, useDisclosure } from "@nextui-org/react";
+import {
+  Modal,
+  ModalBody,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  useDisclosure,
+} from "@nextui-org/react";
 
 export default function WithdrawForm() {
   const account = useAccount();
@@ -93,7 +100,7 @@ export default function WithdrawForm() {
                 />
                 <div className="flex w-48">
                   <Image
-                    src="/img/endowment-fund.jpg"
+                    src="/img/endowment-fund.png"
                     alt="Endowment Fund Logo"
                     className="w-6 h-6 flex-shrink-0 ml-2"
                     width={24}
@@ -109,24 +116,60 @@ export default function WithdrawForm() {
               <span className="font-bold">
                 Balance:{" "}
                 <GetContractBalance
+                address={account.address}
+                contract={
+                  process.env.NEXT_PUBLIC_ENDOWMENT_FUND_ADDRESS! as HexAddress
+                }
+              />
+              </span>
+            </p>
+          )}
+        </div>
+
+        <div className="border-t border-gray-300 mt-4"></div>
+
+        <div className="flex items-center mt-2">
+          <Input
+            isDisabled
+            type="number"
+            label="You Receive"
+            className="max-w-xs"
+            value={
+              receiveAmount
+                ? Math.floor(
+                    Number(formatEther(BigInt(receiveAmount)))
+                  ).toString()
+                : ""
+            }
+          />
+          <div className="flex w-48">
+            <Image
+              src="/img/sUSDe.svg"
+              alt="sUSDe Logo"
+              className="w-6 h-6 flex-shrink-0 ml-2"
+              width={24}
+              height={24}
+            />
+            <span className="ml-2 flex-shrink-0">sUSDe</span>
+          </div>
+        </div>
+
+        {account.status === "connected" && (
+          <p className="text-gray-600 mt-2 text-right text-sm">
+            <span className="font-bold">
+              Balance:{" "}
+              <GetContractBalance
                   address={account.address}
                   contract={
                     process.env
                       .NEXT_PUBLIC_SUSDE_CONTRACT_ADDRESS! as HexAddress
                   }
                 />
-              </span>
-            </p>
-          )}
-        </div>
-        <div className="mt-4 p-4 bg-gray-100 rounded-lg mb-4">
-          <p className="text-gray-600">
-            You receive:{" "}
-            <span className="font-bold">
-              {receiveAmount ? Math.floor(Number(formatEther(BigInt(receiveAmount)))).toString() + " " + "sUSDe" : ""}
+             
             </span>
           </p>
-        </div>
+        )}
+
         <Button color="primary" type="submit" className="w-full block mt-4">
           Withdraw
         </Button>
