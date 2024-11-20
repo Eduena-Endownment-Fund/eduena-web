@@ -12,48 +12,20 @@ import {
 import Image from "next/image";
 import {
   useAccount,
-  useReadContract,
   useWaitForTransactionReceipt,
   useWriteContract,
   type BaseError,
 } from "wagmi";
 import GetContractBalance from "./GetContractBalance";
 import { abi as USDeAbi } from "@/abis/USDe";
-import { abi as StakedUSDeAbi } from "@/abis/StakedUSDe";
 import { abi as EduenaAbi } from "@/abis/Eduena";
-import { formatEther, parseEther } from "viem";
-import React, { useState, useEffect } from "react";
-import { debounce } from "lodash";
+import { parseEther } from "viem";
+import React, { useState, useRef, useEffect } from "react";
 
-export default function DepositForm() {
+const DepositForm = () => {
   const account = useAccount();
   const [amount, setAmount] = useState("");
-  const [debouncedAmount, setDebouncedAmount] = useState(amount);
-
-  // Debounce the amount
-  useEffect(() => {
-    const handler = debounce(() => {
-      setDebouncedAmount(amount);
-    }, 300);
-
-    handler();
-
-    return () => {
-      handler.cancel();
-    };
-  }, [amount]);
-
-  const { data: receiveAmount } = useReadContract({
-    abi: StakedUSDeAbi,
-    address: process.env.NEXT_PUBLIC_SUSDE_CONTRACT_ADDRESS as HexAddress,
-    functionName: "previewDeposit",
-    args: [BigInt(parseEther(debouncedAmount.toString()))],
-  });
-
-  const handleAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value.toString();
-    setAmount(value);
-  };
+  const [isDeposit, setIsDeposit] = useState(false);
   const {
     isOpen: modalIsOpen,
     onOpen: modalOnOpen,
@@ -67,13 +39,15 @@ export default function DepositForm() {
     reset: resetWriteContract,
   } = useWriteContract();
   const { isLoading: isConfirming, isSuccess: isConfirmed } =
-    useWaitForTransactionReceipt({
-      hash,
-    });
+    useWaitForTransactionReceipt({ hash });
+  const refetchBalance = useRef<() => void>(() => {});
 
-  async function approveUSDe(e: React.FormEvent<HTMLFormElement>) {
+  const handleAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setAmount(e.target.value.toString());
+  };
+
+  const approveUSDe = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
     writeContract({
       address: process.env.NEXT_PUBLIC_USDE_CONTRACT_ADDRESS as HexAddress,
       abi: USDeAbi,
@@ -83,29 +57,36 @@ export default function DepositForm() {
         BigInt(parseEther(amount.toString())),
       ],
     });
-
     modalOnOpen();
-  }
+  };
 
-  function depositUSDe(e: React.FormEvent<HTMLFormElement>): void {
+  const depositUSDe = (e: React.FormEvent<HTMLFormElement>) => {
+    setIsDeposit(true);
     e.preventDefault();
-
     resetWriteContract();
-
     writeContract({
       address: process.env.NEXT_PUBLIC_ENDOWMENT_FUND_ADDRESS as HexAddress,
       abi: EduenaAbi,
       functionName: "deposit",
       args: [BigInt(parseEther(amount.toString()))],
     });
-  }
+  };
+
+  useEffect(() => {
+    if (isConfirmed) {
+      refetchBalance.current();
+    }
+
+    if(isConfirmed && isDeposit && !modalIsOpen) {
+      setAmount("");
+      setIsDeposit(false);
+    }
+
+  }, [isConfirmed, isDeposit, modalIsOpen]);
 
   return (
     <>
-      <form
-        className="bg-white rounded-lg shadow-lg p-6"
-        onSubmit={approveUSDe}
-      >
+      <form className="bg-white rounded-lg shadow-lg p-6" onSubmit={approveUSDe}>
         <div>
           <div className="flex items-center">
             <div className="flex-grow">
@@ -129,7 +110,6 @@ export default function DepositForm() {
                   <span className="ml-2 flex-shrink-0">USDe</span>
                 </div>
               </div>
-
               {account.status === "connected" && (
                 <p className="text-gray-600 mt-2 text-right text-sm">
                   <span className="font-bold">
@@ -137,9 +117,9 @@ export default function DepositForm() {
                     <GetContractBalance
                       address={account.address}
                       contract={
-                        process.env
-                          .NEXT_PUBLIC_USDE_CONTRACT_ADDRESS! as HexAddress
+                        process.env.NEXT_PUBLIC_USDE_CONTRACT_ADDRESS! as HexAddress
                       }
+                      onRefetch={(refetch) => (refetchBalance.current = refetch)}
                     />
                   </span>
                 </p>
@@ -147,7 +127,12 @@ export default function DepositForm() {
             </div>
           </div>
         </div>
-        <Button color="primary" type="submit" className="w-full block mt-4">
+        <Button
+          color="primary"
+          type="submit"
+          className={`w-full block mt-4 ${amount && parseInt(amount) > 0 ? '' : 'opacity-50 cursor-not-allowed'}`}
+          disabled={!amount && parseInt(amount) > 0}
+        >
           Deposit
         </Button>
       </form>
@@ -162,24 +147,68 @@ export default function DepositForm() {
         <ModalContent>
           {(onClose) => (
             <>
-              <ModalHeader className="flex flex-col gap-1">Deposit</ModalHeader>
+              <ModalHeader className="flex flex-col gap-1">{isDeposit ? "Deposit USDe" : 'Approve USDe'}</ModalHeader>
               <ModalBody>
-                {hash && <div>Transaction Hash: {hash}</div>}
-                {isPending ? "Approving..." : "Deposit"}
-                {isConfirming && <div>Waiting for confirmation...</div>}
-                {isConfirmed && (
+                {hash && (
+                  <div className="text-wrap whitespace-normal bg-gray-100 p-2 rounded break-words">
+                    <strong>Transaction Hash:</strong> {hash}
+                  </div>
+                )}
+
+                {isDeposit ? (
                   <>
-                    <div>Transaction confirmed.</div>
-                    <form onSubmit={depositUSDe}>
-                      <Button color="primary" type="submit">
-                        Deposit
-                      </Button>
-                    </form>
+                    {isPending ? (
+                      <div className="mb-4">
+                        <div className="text-blue-500">Depositing...</div>
+                      </div>
+                    ) : (
+                      ""
+                    )}
+                    {isConfirming && (
+                      <div className="text-yellow-500 mb-4">
+                        Waiting for confirmation...
+                      </div>
+                    )}
+                    {isConfirmed && (
+                      <div className="text-green-500 mb-4">
+                        <div>Transaction confirmed.</div>
+                      </div>
+                    )}
+                  </>
+                ) : (
+                  <>
+                    {isPending ? (
+                      <div className="mb-4">
+                        <div className="text-blue-500">Approving...</div>
+                      </div>
+                    ) : (
+                      ""
+                    )}
+                    {isConfirming && (
+                      <div className="text-yellow-500 mb-4">
+                        Waiting for confirmation...
+                      </div>
+                    )}
+                    {isConfirmed && (
+                      <div className="text-green-500 mb-4">
+                        <div>Transaction confirmed.</div>
+                        <form onSubmit={depositUSDe}>
+                          <Button
+                            color="primary"
+                            type="submit"
+                            className="w-full mt-2"
+                          >
+                            Deposit
+                          </Button>
+                        </form>
+                      </div>
+                    )}
                   </>
                 )}
+
                 {error && (
                   <div
-                    className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative"
+                    className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4"
                     role="alert"
                   >
                     <strong className="font-bold">Error: </strong>
@@ -189,6 +218,7 @@ export default function DepositForm() {
                   </div>
                 )}
               </ModalBody>
+
               <ModalFooter>
                 <Button color="primary" variant="light" onPress={onClose}>
                   Close
@@ -200,4 +230,6 @@ export default function DepositForm() {
       </Modal>
     </>
   );
-}
+};
+
+export default DepositForm;

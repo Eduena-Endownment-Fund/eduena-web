@@ -1,16 +1,19 @@
 import { HexAddress } from "@/types/types";
 import { useReadContract } from "wagmi";
-import {abi as USDeAbi } from "@/abis/USDe"; // Adjust the import path as necessary
+import { abi as USDeAbi } from "@/abis/USDe"; // Adjust the import path as necessary
 import { formatEther } from "viem";
+import { useEffect } from "react";
 
 interface GetContractBalanceProps {
   address: HexAddress;
   contract: HexAddress;
+  onRefetch: (refetch: () => void) => void;
 }
 
 export default function GetContractBalance({
   address,
-  contract
+  contract,
+  onRefetch,
 }: Readonly<GetContractBalanceProps>) {
   const result = useReadContract({
     abi: USDeAbi,
@@ -18,6 +21,10 @@ export default function GetContractBalance({
     functionName: "balanceOf",
     args: [address],
   });
+
+  useEffect(() => {
+    onRefetch(result.refetch);
+  }, [onRefetch, result.refetch]);
 
   return (
     <>

@@ -12,7 +12,7 @@ import { HexAddress } from "@/types/types";
 import { abi as EduenaAbi } from "@/abis/Eduena";
 import { abi as StakedUSDe } from "@/abis/StakedUSDe";
 import { BaseError, parseEther, formatEther } from "viem";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { debounce } from "lodash";
 import {
   Modal,
@@ -27,6 +27,7 @@ export default function WithdrawForm() {
   const account = useAccount();
   const [amount, setAmount] = useState("");
   const [debouncedAmount, setDebouncedAmount] = useState(amount);
+  const refetchBalance = useRef<() => void>(() => {});
 
   // Debounce the amount
   useEffect(() => {
@@ -80,6 +81,16 @@ export default function WithdrawForm() {
     modalOnOpen();
   }
 
+  useEffect(() => {
+    if (isConfirmed) {
+      refetchBalance.current();
+    }
+
+    if (isConfirmed && !modalIsOpen) {
+      setAmount("");
+    }
+  }, [isConfirmed, modalIsOpen]);
+
   return (
     <>
       <form
@@ -116,11 +127,13 @@ export default function WithdrawForm() {
               <span className="font-bold">
                 Balance:{" "}
                 <GetContractBalance
-                address={account.address}
-                contract={
-                  process.env.NEXT_PUBLIC_ENDOWMENT_FUND_ADDRESS! as HexAddress
-                }
-              />
+                  onRefetch={(refetch) => (refetchBalance.current = refetch)}
+                  address={account.address}
+                  contract={
+                    process.env
+                      .NEXT_PUBLIC_ENDOWMENT_FUND_ADDRESS! as HexAddress
+                  }
+                />
               </span>
             </p>
           )}
@@ -159,18 +172,26 @@ export default function WithdrawForm() {
             <span className="font-bold">
               Balance:{" "}
               <GetContractBalance
-                  address={account.address}
-                  contract={
-                    process.env
-                      .NEXT_PUBLIC_SUSDE_CONTRACT_ADDRESS! as HexAddress
-                  }
-                />
-             
+                onRefetch={(refetch) => (refetchBalance.current = refetch)}
+                address={account.address}
+                contract={
+                  process.env.NEXT_PUBLIC_SUSDE_CONTRACT_ADDRESS! as HexAddress
+                }
+              />
             </span>
           </p>
         )}
 
-        <Button color="primary" type="submit" className="w-full block mt-4">
+        <Button
+          color="primary"
+          type="submit"
+          className={`w-full block mt-4 ${
+            amount && parseInt(amount) > 0
+              ? ""
+              : "opacity-50 cursor-not-allowed"
+          }`}
+          disabled={!amount && parseInt(amount) > 0}
+        >
           Withdraw
         </Button>
       </form>
