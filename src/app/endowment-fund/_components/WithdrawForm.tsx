@@ -185,12 +185,8 @@ export default function WithdrawForm() {
         <Button
           color="primary"
           type="submit"
-          className={`w-full block mt-4 ${
-            amount && parseInt(amount) > 0
-              ? ""
-              : "opacity-50 cursor-not-allowed"
-          }`}
-          disabled={!amount && parseInt(amount) > 0}
+          className="w-full block mt-4"
+          isDisabled={account.status !== "connected" || (!amount || parseInt(amount) <= 0)}
         >
           Withdraw
         </Button>
