@@ -1,5 +1,16 @@
 export const projectData = [
   {
+    projectName: "Decentralized Science (DeSci) Initiatives",
+    description:
+      "Funding open-access scientific research and decentralized peer review systems.",
+    amount: "$80,000",
+    category: "Science",
+    impact: "Enables 20 research projects with global implications.",
+    fundingTimeline: "2024-2027",
+    region: "Global",
+    status: "Proposed",
+  },
+  {
     projectName: "Education Scholarships and Fellowships",
     description:
       "Providing long-term scholarships for underprivileged students and funding educational research and innovation.",
@@ -76,17 +87,6 @@ export const projectData = [
     fundingTimeline: "2024-2026",
     region: "Developing Countries",
     status: "Active",
-  },
-  {
-    projectName: "Decentralized Science (DeSci) Initiatives",
-    description:
-      "Funding open-access scientific research and decentralized peer review systems.",
-    amount: "$80,000",
-    category: "Science",
-    impact: "Enables 20 research projects with global implications.",
-    fundingTimeline: "2024-2027",
-    region: "Global",
-    status: "Proposed",
   },
 ];
 
