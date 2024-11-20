@@ -206,10 +206,10 @@ export default function WithdrawForm() {
         <ModalContent>
           {(onClose) => (
             <>
-              <ModalHeader className="flex flex-col gap-1">Deposit</ModalHeader>
+              <ModalHeader className="flex flex-col gap-1">Withdraw</ModalHeader>
               <ModalBody>
                 {hash && <div>Transaction Hash: {hash}</div>}
-                {isPending ? "Withdrawing..." : "Deposit"}
+                {isPending ? "Withdrawing..." : ""}
                 {isConfirming && <div>Waiting for confirmation...</div>}
                 {isConfirmed && (
                   <>
