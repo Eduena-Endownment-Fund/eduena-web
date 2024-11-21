@@ -9,6 +9,7 @@ export const projectData = [
     fundingTimeline: "2024-2027",
     region: "Global",
     status: "Active",
+    image: "/img/desci.jpg"
   },
   {
     projectName: "Education Scholarships and Fellowships",
@@ -20,6 +21,7 @@ export const projectData = [
     fundingTimeline: "2024-2026",
     region: "Global",
     status: "Active",
+    image: "/img/education.jpg"
   },
   {
     projectName: "Innovative Research and Development Projects",
@@ -32,6 +34,7 @@ export const projectData = [
     fundingTimeline: "2024-2028",
     region: "Global",
     status: "Active",
+    image: "/img/research.jpg"
   },
   {
     projectName: "Healthcare Access and Research",
@@ -43,6 +46,7 @@ export const projectData = [
     fundingTimeline: "2024-2025",
     region: "Developing Countries",
     status: "Active",
+    image: "/img/healthcare.jpg"
   },
   {
     projectName: "Open-Source Technology Development",
@@ -54,6 +58,7 @@ export const projectData = [
     fundingTimeline: "2024-2026",
     region: "Global",
     status: "Active",
+    image: "/img/open-source.jpg"
   },
   {
     projectName: "Climate Change Mitigation Projects",
@@ -65,6 +70,7 @@ export const projectData = [
     fundingTimeline: "2024-2027",
     region: "Global",
     status: "Proposed",
+    image: "/img/climate-change.jpg"
   },
   {
     projectName: "Disaster Relief and Humanitarian Aid",
@@ -76,6 +82,7 @@ export const projectData = [
     fundingTimeline: "2024-2025",
     region: "Global",
     status: "Proposed",
+    image: "/img/disaster-relief.jpg",
   },
   {
     projectName: "Social Entrepreneurship and Small Business Support",
@@ -87,6 +94,7 @@ export const projectData = [
     fundingTimeline: "2024-2026",
     region: "Developing Countries",
     status: "Proposed",
+    image: "/img/sme.jpg"
   },
 ];
 
