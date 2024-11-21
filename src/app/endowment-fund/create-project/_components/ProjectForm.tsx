@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Button, Input, Select, SelectItem } from "@nextui-org/react";
 import { categories } from "@/mocks/mockData";
 import {
@@ -162,7 +162,12 @@ const ProjectForm = () => {
             fullWidth
           />
         </div>
-        <Button type="submit" color="primary" fullWidth={true} isDisabled={!isFormValid()}>
+        <Button
+          type="submit"
+          color="primary"
+          fullWidth={true}
+          isDisabled={!isFormValid()}
+        >
           Submit
         </Button>
       </form>
