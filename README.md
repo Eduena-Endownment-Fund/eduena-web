@@ -1,9 +1,9 @@
 # Eduena Smart Contract
 [Endowment Fund](https://github.com/Eduena-Endownment-Fund/eduena-contract)
 
-# Eduena Web
+# Eduena
 
-Eduena Web is an innovative web application designed to manage and showcase various projects funded by an endowment fund. Our platform aims to streamline the process of project funding, monitoring, and reporting, making it easier for organizations to manage their endowment funds effectively.
+Eduena is an Decentralized Endowment Fund Management on sUSDe designed to manage and showcase various projects funded by an endowment fund. Our platform aims to streamline the process of project funding, monitoring, and reporting, making it easier for organizations to manage their endowment funds effectively.
 
 ## Key Features
 
@@ -16,17 +16,18 @@ Eduena Web is an innovative web application designed to manage and showcase vari
 ## Technologies Used
 
 - **Frontend**: React, Next.js, TypeScript, Tailwind CSS
-- **UI Components**: @nextui-org/react, @headlessui/react, @heroicons/react, @rainbow-me/rainbowkit
+- **UI Components**: @nextui-org/react, @headlessui/react, @heroicons/react
+- **Backend Smart Contract Integration**: Wagmi, Viem, @rainbow-me/rainbowkit
 
 ## Note
 
 The pages such as Projects, Create Project, and Dashboard are static and are intended for mock or demonstration purposes only. They do not have any real functionality.
 
-## Why Invest in Eduena Web?
+## Why Invest in Eduena?
 
-Eduena Web is poised to revolutionize the way endowment funds are managed. By providing a transparent and efficient platform for project funding and monitoring, we aim to attract more donors and ensure that funds are utilized effectively. Our platform's user-friendly interface and comprehensive features make it an ideal solution for organizations looking to maximize the impact of their endowment funds.
+Eduena is connecting donors, organizations, and beneficiaries transparently and securely. By providing a transparent and efficient platform for project funding and monitoring, we aim to attract more donors and ensure that funds are utilized effectively. Our platform's user-friendly interface and comprehensive features make it an ideal solution for organizations looking to maximize the impact of their endowment funds.
 
-Investing in Eduena Web means supporting a project that has the potential to drive significant positive change in various sectors, including healthcare, education, technology, and more. Join us in our mission to make a difference through effective endowment fund management.
+Investing in Eduena means supporting a project that has the potential to drive significant positive change in various sectors, including healthcare, education, technology, and more. Join us in our mission to make a difference through effective endowment fund management.
 
 ## Navigation
 
