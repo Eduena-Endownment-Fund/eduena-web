@@ -1,5 +1,17 @@
 export const projectData = [
   {
+    projectName: "Decentralized Science (DeSci) Initiatives",
+    description:
+      "Funding open-access scientific research and decentralized peer review systems.",
+    amount: "$80,000",
+    category: "Science",
+    impact: "Enables 20 research projects with global implications.",
+    fundingTimeline: "2024-2027",
+    region: "Global",
+    status: "Active",
+    image: "/img/desci.jpg"
+  },
+  {
     projectName: "Education Scholarships and Fellowships",
     description:
       "Providing long-term scholarships for underprivileged students and funding educational research and innovation.",
@@ -9,6 +21,7 @@ export const projectData = [
     fundingTimeline: "2024-2026",
     region: "Global",
     status: "Active",
+    image: "/img/education.jpg"
   },
   {
     projectName: "Innovative Research and Development Projects",
@@ -20,7 +33,8 @@ export const projectData = [
       "Funds 10 breakthrough R&D projects with potential to drive industry innovation and solve critical global challenges.",
     fundingTimeline: "2024-2028",
     region: "Global",
-    status: "Proposed",
+    status: "Active",
+    image: "/img/research.jpg"
   },
   {
     projectName: "Healthcare Access and Research",
@@ -31,7 +45,8 @@ export const projectData = [
     impact: "Provides medical care for 5,000 individuals annually.",
     fundingTimeline: "2024-2025",
     region: "Developing Countries",
-    status: "Proposed",
+    status: "Active",
+    image: "/img/healthcare.jpg"
   },
   {
     projectName: "Open-Source Technology Development",
@@ -43,6 +58,7 @@ export const projectData = [
     fundingTimeline: "2024-2026",
     region: "Global",
     status: "Active",
+    image: "/img/open-source.jpg"
   },
   {
     projectName: "Climate Change Mitigation Projects",
@@ -53,7 +69,8 @@ export const projectData = [
     impact: "Offsets 10,000 tons of CO2 annually and plants 50,000 trees.",
     fundingTimeline: "2024-2027",
     region: "Global",
-    status: "Active",
+    status: "Proposed",
+    image: "/img/climate-change.jpg"
   },
   {
     projectName: "Disaster Relief and Humanitarian Aid",
@@ -64,7 +81,8 @@ export const projectData = [
     impact: "Supports 10,000 displaced individuals during crises.",
     fundingTimeline: "2024-2025",
     region: "Global",
-    status: "Active",
+    status: "Proposed",
+    image: "/img/disaster-relief.jpg",
   },
   {
     projectName: "Social Entrepreneurship and Small Business Support",
@@ -75,18 +93,8 @@ export const projectData = [
     impact: "Supports 100 small businesses and creates 500 jobs annually.",
     fundingTimeline: "2024-2026",
     region: "Developing Countries",
-    status: "Active",
-  },
-  {
-    projectName: "Decentralized Science (DeSci) Initiatives",
-    description:
-      "Funding open-access scientific research and decentralized peer review systems.",
-    amount: "$80,000",
-    category: "Science",
-    impact: "Enables 20 research projects with global implications.",
-    fundingTimeline: "2024-2027",
-    region: "Global",
     status: "Proposed",
+    image: "/img/sme.jpg"
   },
 ];
 
@@ -107,17 +115,46 @@ export const reports = [
 
 export const transactions = [
   {
-    id: "TXN12345",
+    id: "a1b2c3",
     date: "2023-11-01",
     description: "Funding for Healthcare Access and Research",
     amount: "$75,000",
-    status: "Completed",
   },
   {
-    id: "TXN12346",
+    id: "d4e5f6",
     date: "2023-12-15",
     description: "Funding for Open-Source Technology Development",
     amount: "$30,000",
-    status: "Completed",
   },
+  {
+    id: "g7h8i9",
+    date: "2024-01-01",
+    description: "Funding for Decentralized Science (DeSci) Initiatives",
+    amount: "$80,000",
+  },
+  {
+    id: "j1k2l3",
+    date: "2024-01-15",
+    description: "Funding for Education Scholarships and Fellowships",
+    amount: "$50,000",
+  },
+  {
+    id: "m4n5o6",
+    date: "2024-02-01",
+    description: "Funding for Innovative Research and Development Projects",
+    amount: "$120,000",
+  },
+];
+
+export const categories = [
+  { key: "disaster_relief", label: "Disaster Relief" },
+  { key: "economic_empowerment", label: "Economic Empowerment" },
+  { key: "education", label: "Education" },
+  { key: "environment", label: "Environment" },
+  { key: "healthcare", label: "Healthcare" },
+  { key: "infrastructure", label: "Infrastructure" },
+  { key: "research_and_development", label: "Research and Development" },
+  { key: "social_justice", label: "Social Justice" },
+  { key: "technology", label: "Technology" },
+  { key: "water_and_sanitation", label: "Water and Sanitation" },
 ];

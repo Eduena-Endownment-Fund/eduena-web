@@ -13,7 +13,7 @@ export default function EndowmentFundPage() {
   return (
     <>
       <HeroSection
-        title="Manage Your Endowment"
+        title="Manage Your Endowment Fund"
         description="Seamlessly deposit funds to support impactful projects or withdraw your endowment with ease. Join us in making a difference!"
       />
       <div className="container mx-auto p-6 max-w-md">

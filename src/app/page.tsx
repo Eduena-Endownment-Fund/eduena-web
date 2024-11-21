@@ -61,9 +61,10 @@ export default function Home() {
             <p>Use the yield to fund various initiatives.</p>
           </div>
           <div className="p-6 rounded shadow-md bg-white">
-            <h4 className="text-xl font-semibold mb-2">Initiative Selection</h4>
+            <h4 className="text-xl font-semibold mb-2">Claim Funds</h4>
             <p>
-              Beneficiaries can choose initiatives offered by organizations.
+              Beneficiaries can apply for initiatives and
+              claim funds upon approval.
             </p>
           </div>
           <div className="p-6 rounded shadow-md bg-white">
