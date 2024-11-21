@@ -14,6 +14,7 @@ const ProjectForm = () => {
   const [projectName, setProjectName] = useState("");
   const [description, setDescription] = useState("");
   const [amount, setAmount] = useState("");
+  const [walletAddress, setWalletAddress] = useState("");
   const [category, setCategory] = useState("");
   const [impact, setImpact] = useState("");
   const [fundingTimeline, setFundingTimeline] = useState("");
@@ -29,6 +30,7 @@ const ProjectForm = () => {
       projectName &&
       description &&
       amount &&
+      walletAddress &&
       category &&
       impact &&
       fundingTimeline &&
@@ -43,6 +45,7 @@ const ProjectForm = () => {
     setProjectName("");
     setDescription("");
     setAmount("");
+    setWalletAddress("");
     setCategory("");
     setImpact("");
     setFundingTimeline("");
@@ -94,6 +97,21 @@ const ProjectForm = () => {
             id="amount"
             value={amount}
             onChange={(e) => setAmount(e.target.value)}
+            fullWidth
+          />
+        </div>
+        <div className="mb-4">
+          <label
+            className="block text-gray-700 text-sm font-bold mb-2"
+            htmlFor="walletAddress"
+          >
+            Wallet Address
+          </label>
+          <Input
+            type="text"
+            id="walletAddress"
+            value={walletAddress}
+            onChange={(e) => setWalletAddress(e.target.value)}
             fullWidth
           />
         </div>
