@@ -203,7 +203,7 @@ const ProjectForm = () => {
             <p>Your project has been successfully created.</p>
           </ModalBody>
           <ModalFooter>
-            <Button auto onClick={() => modalOnOpenChange(false)}>
+            <Button onClick={() => modalOnOpenChange()}>
               Close
             </Button>
           </ModalFooter>

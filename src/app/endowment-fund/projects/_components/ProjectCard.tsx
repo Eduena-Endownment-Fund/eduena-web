@@ -40,7 +40,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
   };
 
   const handleClose = () => {
-    onOpenChange(false);
+    onOpenChange();
     setSelectedImage(undefined);
   };
 
