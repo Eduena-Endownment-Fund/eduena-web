@@ -1,4 +1,4 @@
-import { Card, CardBody, CardFooter, Image } from "@nextui-org/react";
+import { Card, CardBody, CardFooter, Chip, Image } from "@nextui-org/react";
 
 interface ProjectCardProps {
   project: {
@@ -17,26 +17,42 @@ interface ProjectCardProps {
 const ProjectCard = ({ project }: ProjectCardProps) => {
   return (
     <Card shadow="sm">
-      <CardBody className="overflow-visible p-6">
+      <CardBody className="p-6">
         <Image
           shadow="sm"
           radius="lg"
           width={24}
           height={24}
           alt={project.projectName}
-          className="w-full object-cover h-[140px]"
+          className="w-full object-cover h-[140px] mb-4"
           src={project.img}
         />
-        <h2 className="text-2xl font-bold mt-4">{project.projectName}</h2>
+
+        <p className="text-tiny uppercase font-bold my-2">{project.status}</p>
+        <h2 className="text-2xl font-bold">{project.projectName}</h2>
+        <Chip color="primary" className="my-4 font-bold p-4" size="lg">
+          {project.category}
+        </Chip>
+        <hr className="my-4 border-t border-gray-300" />
         <p className="mt-2 text-gray-700">{project.description}</p>
-        <p className="mt-2 text-gray-700">Impact: {project.impact}</p>
-        <p className="mt-2 text-gray-700">Funding Timeline: {project.fundingTimeline}</p>
-        <p className="mt-2 text-gray-700">Region: {project.region}</p>
-        <p className="mt-2 text-gray-700">Status: {project.status}</p>
+        <hr className="my-4 border-t border-gray-300" />
+        <p className="mt-2 text-gray-700">
+          <b>Impact: </b>
+          {project.impact}
+        </p>
+        <p className="mt-2 text-gray-700">
+          <b>Funding Timeline: </b>
+          {project.fundingTimeline}
+        </p>
+        <p className="mt-2 text-gray-700">
+          <b>Region: </b>
+          {project.region}
+        </p>
       </CardBody>
-      <CardFooter className="text-xl justify-between p-6">
-        <b>{project.category}</b>
-        <p className="text-4xl text-primary-500 font-bold">{project.amount}</p>
+      <CardFooter className="p-6">
+        <p className="text-4xl text-primary-500 font-extrabold">
+          {project.amount}
+        </p>
       </CardFooter>
     </Card>
   );

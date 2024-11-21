@@ -13,18 +13,17 @@ export default function Projects() {
         title="Endowment Fund Use-Cases"
         description="Our endowment fund supports various use-cases including research, development, community outreach, and educational programs."
       />
-      {/* Projects Display Section */}
-      <section className="p-32">
+      <section className="p-6 md:p-6 lg:p-18">
         <div className="mx-auto rounded">
           <h2 className="text-3xl font-bold mb-6">Projects for Funding</h2>
           {projects.length > 0 ? (
-            <div className="gap-12 grid grid-cols-2 sm:grid-cols-4">
-              {projects.map((project, index) => (
-                <ProjectCard key={index} project={project} />
-              ))}
-            </div>
+        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-6">
+          {projects.map((project, index) => (
+            <ProjectCard key={index} project={project} />
+          ))}
+        </div>
           ) : (
-            <p>No projects submitted yet.</p>
+        <p>No projects submitted yet.</p>
           )}
         </div>
       </section>
