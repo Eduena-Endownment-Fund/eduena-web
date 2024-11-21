@@ -3,6 +3,7 @@
 import {
   Disclosure,
   DisclosureButton,
+  DisclosurePanel,
 } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
@@ -69,11 +70,36 @@ export default function Navbar() {
               </div>
             </div>
           </div>
-          <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-            <ConnectButton  />
+          <div className="absolute inset-y-0 right-0 flex items-center pr-2 hidden sm:flex">
+            <ConnectButton />
           </div>
         </div>
       </div>
+
+      <DisclosurePanel className="sm:hidden">
+        <div className="space-y-1 px-2 pt-2 pb-3">
+          {navigation.map((item) => {
+            const isActive = pathname === item.href;
+            return (
+              <Link
+                key={item.name}
+                href={item.href}
+                className={classNames(
+                  isActive
+                    ? "bg-gray-100 text-gray-900"
+                    : "text-gray-500 hover:bg-gray-200 hover:text-gray-700",
+                  "block rounded-md px-3 py-2 text-base font-medium"
+                )}
+              >
+                {item.name}
+              </Link>
+            );
+          })}
+          <div className="border-t border-gray-200 pt-4">
+            <ConnectButton />
+          </div>
+        </div>
+      </DisclosurePanel>
     </Disclosure>
   );
 }
