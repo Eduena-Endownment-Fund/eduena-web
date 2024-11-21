@@ -30,7 +30,6 @@ import {
               <TableColumn>Date</TableColumn>
               <TableColumn>Description</TableColumn>
               <TableColumn>Amount</TableColumn>
-              <TableColumn>Status</TableColumn>
             </TableHeader>
             <TableBody>
               {transactions.map((transaction, index) => (
@@ -39,7 +38,6 @@ import {
                   <TableCell>{transaction.date}</TableCell>
                   <TableCell>{transaction.description}</TableCell>
                   <TableCell>{transaction.amount}</TableCell>
-                  <TableCell>{transaction.status}</TableCell>
                 </TableRow>
               ))}
             </TableBody>
