@@ -1,6 +1,11 @@
 import { useState, useEffect } from "react";
 import { Button, Input } from "@nextui-org/react";
-import { useWriteContract, useWaitForTransactionReceipt, useAccount, type BaseError } from "wagmi";
+import {
+  useWriteContract,
+  useWaitForTransactionReceipt,
+  useAccount,
+  type BaseError,
+} from "wagmi";
 import { abi as EduenaAbi } from "@/abis/Eduena";
 import { HexAddress } from "@/types/types";
 import { parseEther } from "viem";
@@ -8,8 +13,15 @@ import { parseEther } from "viem";
 const ClaimForm = () => {
   const account = useAccount();
   const [amount, setAmount] = useState("");
-  const { data: hash, writeContract, isPending, error, reset: resetWriteContract } = useWriteContract();
-  const { isLoading: isConfirming, isSuccess: isConfirmed } = useWaitForTransactionReceipt({ hash });
+  const {
+    data: hash,
+    writeContract,
+    isPending,
+    error,
+    reset: resetWriteContract,
+  } = useWriteContract();
+  const { isLoading: isConfirming, isSuccess: isConfirmed } =
+    useWaitForTransactionReceipt({ hash });
 
   const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
@@ -18,7 +30,10 @@ const ClaimForm = () => {
       address: process.env.NEXT_PUBLIC_ENDOWMENT_FUND_ADDRESS as HexAddress,
       abi: EduenaAbi,
       functionName: "distribute",
-      args: [account?.address as HexAddress, BigInt(parseEther(amount.toString()))],
+      args: [
+        account?.address as HexAddress,
+        BigInt(parseEther(amount.toString())),
+      ],
     });
   };
 
@@ -42,17 +57,17 @@ const ClaimForm = () => {
             fullWidth
           />
         </div>
-        {account.status === "connected" && (
-          <Button
-            color="primary"
-            type="submit"
-            className="w-full block mt-4"
-            isDisabled={account.status !== "connected" || (!amount || parseInt(amount) <= 0)}
-          >
-            {" "}
-            Claim Fund{" "}
-          </Button>
-        )}
+        <Button
+          color="primary"
+          type="submit"
+          className="w-full block mt-4"
+          isDisabled={
+            account.status !== "connected" || !amount || parseInt(amount) <= 0
+          }
+        >
+          {" "}
+          Claim Fund{" "}
+        </Button>
       </form>
 
       {isPending && <div className="text-blue-500 mt-4">Claiming...</div>}
