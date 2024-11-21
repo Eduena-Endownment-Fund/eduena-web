@@ -111,7 +111,7 @@ export default function WithdrawForm() {
                 />
                 <div className="flex w-48">
                   <Image
-                    src="/img/endowment-fund.png"
+                    src="/img/eduena.png"
                     alt="Endowment Fund Logo"
                     className="w-6 h-6 flex-shrink-0 ml-2"
                     width={24}
