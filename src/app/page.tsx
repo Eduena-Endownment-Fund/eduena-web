@@ -64,7 +64,7 @@ export default function Home() {
                   Contact
                 </Link>
                 <Link
-                  href="https://example.com"
+                  href="https://github.com/Eduena-Endownment-Fund/eduena-web"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block text-lg text-white hover:bg-blue-700 rounded-md px-3 py-2"
@@ -89,7 +89,7 @@ export default function Home() {
         description="Connecting donors, organizations, and beneficiaries transparently and securely."
       >
         <a
-          href="https://example.com"
+          href="https://github.com/Eduena-Endownment-Fund/eduena-web"
           target="_blank"
           rel="noopener noreferrer"
           className="bg-white text-blue-600 px-6 py-3 rounded-full shadow-lg hover:bg-gray-200 transition duration-300"
@@ -104,25 +104,26 @@ export default function Home() {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-4xl mx-auto">
           <div className="p-6 rounded shadow-md bg-white">
             <h4 className="text-xl font-semibold mb-2">Stake sUSDe</h4>
-            <p>Use the yield to fund various initiatives.</p>
+            <p>Stake sUSDe to generate yield for funding community initiatives.</p>
+          </div>
+          <div className="p-6 rounded shadow-md bg-white">
+            <h4 className="text-xl font-semibold mb-2">Endowment Fund Management</h4>
+            <p>
+            Securely manage deposits and withdrawals with full transparency.
+            </p>
           </div>
           <div className="p-6 rounded shadow-md bg-white">
             <h4 className="text-xl font-semibold mb-2">Claim Funds</h4>
             <p>
-              Beneficiaries can apply for initiatives and
-              claim funds upon approval.
+            Apply for funding via automated, tamper-proof smart contracts.
             </p>
           </div>
           <div className="p-6 rounded shadow-md bg-white">
-            <h4 className="text-xl font-semibold mb-2">Automated Process</h4>
-            <p>
-              Automated application and distribution process using smart
-              contracts.
-            </p>
-          </div>
-          <div className="p-6 rounded shadow-md bg-white">
-            <h4 className="text-xl font-semibold mb-2">Transparency</h4>
-            <p>Transparent transaction and fund usage reporting.</p>
+            <h4 className="text-xl font-semibold mb-2">Projects and Initiatives</h4>
+            <p>Explore funded projects or propose new initiatives for support.</p>
+          </div>          <div className="p-6 rounded shadow-md bg-white">
+            <h4 className="text-xl font-semibold mb-2">Transparency and Governance Dashboard</h4>
+            <p>Monitor project performance, fund impact, and transactions in real-time with on-chain transparency.</p>
           </div>
         </div>
       </section>
