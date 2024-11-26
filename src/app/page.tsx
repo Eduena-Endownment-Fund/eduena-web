@@ -1,7 +1,11 @@
-"use client"
+"use client";
 
 import HeroSection from "@/components/HeroSection";
-import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/react";
+import {
+  Disclosure,
+  DisclosureButton,
+  DisclosurePanel,
+} from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 
@@ -9,7 +13,10 @@ export default function Home() {
   return (
     <div className="min-h-screen flex flex-col">
       {/* Header */}
-      <Disclosure as="header" className="p-4 shadow-md bg-gradient-to-r from-blue-500 to-purple-600 text-white">
+      <Disclosure
+        as="header"
+        className="p-4 shadow-md bg-gradient-to-r from-blue-500 to-purple-600 text-white"
+      >
         {({ open }) => (
           <>
             <div className="container mx-auto px-4 flex justify-between items-center">
@@ -54,13 +61,22 @@ export default function Home() {
             </div>
             <DisclosurePanel className="sm:hidden">
               <div className="space-y-1 px-2 pt-2 pb-3">
-                <Link href="#features" className="block text-lg text-white hover:bg-blue-700 rounded-md px-3 py-2">
+                <Link
+                  href="#features"
+                  className="block text-lg text-white hover:bg-blue-700 rounded-md px-3 py-2"
+                >
                   Features
                 </Link>
-                <Link href="#how-it-works" className="block text-lg text-white hover:bg-blue-700 rounded-md px-3 py-2">
+                <Link
+                  href="#how-it-works"
+                  className="block text-lg text-white hover:bg-blue-700 rounded-md px-3 py-2"
+                >
                   How It Works
                 </Link>
-                <Link href="#contact" className="block text-lg text-white hover:bg-blue-700 rounded-md px-3 py-2">
+                <Link
+                  href="#contact"
+                  className="block text-lg text-white hover:bg-blue-700 rounded-md px-3 py-2"
+                >
                   Contact
                 </Link>
                 <Link
@@ -86,7 +102,7 @@ export default function Home() {
       {/* Hero Section */}
       <HeroSection
         title="Decentralized Endowment Fund Management on sUSDe"
-        description="Connecting donors, organizations, and beneficiaries transparently and securely."
+        description="Connecting donors, organizations, and beneficiaries transparently and securely. Empowering initiatives in Decentralized Science (DeSci), DAOs, Education, Social Impact, and more."
       >
         <a
           href="https://github.com/Eduena-Endownment-Fund/eduena-web"
@@ -104,26 +120,40 @@ export default function Home() {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-4xl mx-auto">
           <div className="p-6 rounded shadow-md bg-white">
             <h4 className="text-xl font-semibold mb-2">Stake sUSDe</h4>
-            <p>Stake sUSDe to generate yield for funding community initiatives.</p>
+            <p>
+              Stake sUSDe to generate yield for funding community initiatives.
+            </p>
           </div>
           <div className="p-6 rounded shadow-md bg-white">
-            <h4 className="text-xl font-semibold mb-2">Endowment Fund Management</h4>
+            <h4 className="text-xl font-semibold mb-2">
+              Endowment Fund Management
+            </h4>
             <p>
-            Securely manage deposits and withdrawals with full transparency.
+              Securely manage deposits and withdrawals with full transparency.
             </p>
           </div>
           <div className="p-6 rounded shadow-md bg-white">
             <h4 className="text-xl font-semibold mb-2">Claim Funds</h4>
             <p>
-            Apply for funding via automated, tamper-proof smart contracts.
+              Apply for funding via automated, tamper-proof smart contracts.
             </p>
           </div>
           <div className="p-6 rounded shadow-md bg-white">
-            <h4 className="text-xl font-semibold mb-2">Projects and Initiatives</h4>
-            <p>Explore funded projects or propose new initiatives for support.</p>
-          </div>          <div className="p-6 rounded shadow-md bg-white">
-            <h4 className="text-xl font-semibold mb-2">Transparency and Governance Dashboard</h4>
-            <p>Monitor project performance, fund impact, and transactions in real-time with on-chain transparency.</p>
+            <h4 className="text-xl font-semibold mb-2">
+              Projects and Initiatives
+            </h4>
+            <p>
+              Explore funded projects or propose new initiatives for support.
+            </p>
+          </div>{" "}
+          <div className="p-6 rounded shadow-md bg-white">
+            <h4 className="text-xl font-semibold mb-2">
+              Transparency and Governance Dashboard
+            </h4>
+            <p>
+              Monitor project performance, fund impact, and transactions in
+              real-time with on-chain transparency.
+            </p>
           </div>
         </div>
       </section>

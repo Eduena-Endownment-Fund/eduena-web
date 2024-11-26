@@ -1,8 +1,15 @@
 # Eduena
 
-Eduena is a Decentralized Endowment Fund Management on sUSDe designed to manage and showcase various projects funded by an endowment fund. Our platform aims to streamline the process of project funding, monitoring, and reporting, making it easier for organizations to manage their endowment funds effectively.
+Eduena is a Decentralized Endowment Fund Management platform built on **sUSDe**. It is designed to manage and showcase various projects funded by an endowment fund.  
 
-Built on the principles of transparency, security, and community governance, DEF leverages decentralized finance (DeFi) to empower endowment fund stakeholders while eliminating traditional inefficiencies.
+Our platform serves as a hub for initiatives across a wide range of domains, including:  
+- **Decentralized Science (DeSci)**  
+- **DAOs**  
+- **Education**  
+- **Social Impact**  
+- And more  
+
+Eduena streamlines the processes of project funding, monitoring, and reporting, enabling organizations to manage their endowment funds efficiently and transparently.  
 
 ## Table of Contents
 
