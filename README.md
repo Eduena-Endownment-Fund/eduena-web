@@ -1,15 +1,16 @@
 # Eduena
 
-Eduena is a Decentralized Endowment Fund Management platform built on **sUSDe**. It is designed to manage and showcase various projects funded by an endowment fund.  
+Eduena is a Decentralized Endowment Fund Management platform built on **sUSDe**. It is designed to manage and showcase various projects funded by an endowment fund.
 
-Our platform serves as a hub for initiatives across a wide range of domains, including:  
-- **Decentralized Science (DeSci)**  
-- **DAOs**  
-- **Education**  
-- **Social Impact**  
-- And more  
+Our platform serves as a hub for initiatives across a wide range of domains, including:
 
-Eduena streamlines the processes of project funding, monitoring, and reporting, enabling organizations to manage their endowment funds efficiently and transparently.  
+- **Decentralized Science (DeSci)**
+- **DAOs**
+- **Education**
+- **Social Impact**
+- And more
+
+Eduena streamlines the processes of project funding, monitoring, and reporting, enabling organizations to manage their endowment funds efficiently and transparently.
 
 ## Table of Contents
 
@@ -64,39 +65,46 @@ Investing in Eduena means supporting a project that has the potential to drive s
 
 ## Roadmap and Challenges
 
-### Roadmap  
+### Roadmap
+
 Our journey to revolutionize decentralized funding and initiative management includes the following key milestones:
 
-1. **Platform Launch and Initial Deployment**  
-   - Launch the core platform with features such as staking, fund distribution, and beneficiary application modules.  
-   - Roll out the governance dashboard for transparency and real-time reporting.  
-   - Conduct comprehensive smart contract audits to ensure security and reliability.  
+1. **Platform Launch and Initial Deployment**
 
-2. **Community Growth and Ecosystem Development**  
-   - Expand the platform's user base through targeted marketing and community-building efforts.  
-   - Onboard early adopters, including donors and beneficiaries.  
+   - Launch the core platform with features such as staking, fund distribution, and beneficiary application modules.
+   - Roll out the governance dashboard for transparency and real-time reporting.
+   - Conduct comprehensive smart contract audits to ensure security and reliability.
+
+2. **Community Growth and Ecosystem Development**
+
+   - Expand the platform's user base through targeted marketing and community-building efforts.
+   - Onboard early adopters, including donors and beneficiaries.
    - Establish strategic partnerships with NGOs, educational institutions, and other organizations.
 
-3. **Advanced Features and Global Outreach**  
-   - Introduce advanced features such as dynamic yield optimization and impact measurement tools.  
-   - Expand globally, accommodating multi-currency staking and cross-border initiatives.  
-   - Scale the platform to support a larger number of projects and community-driven governance.  
+3. **Advanced Features and Global Outreach**
+   - Introduce advanced features such as dynamic yield optimization and impact measurement tools.
+   - Expand globally, accommodating multi-currency staking and cross-border initiatives.
+   - Scale the platform to support a larger number of projects and community-driven governance.
 
-### Challenges  
-While our vision is ambitious, we recognize the following challenges and are prepared to address them:  
+### Challenges
 
-1. **User Adoption**  
-   - Educating users on the benefits of decentralized funding and staking mechanisms remains a priority.  
-   - We aim to simplify the onboarding process to attract a broader audience.  
+While our vision is ambitious, we recognize the following challenges and are prepared to address them:
 
-2. **Regulatory Compliance**  
-   - Navigating global regulatory landscapes, including KYC/AML requirements, to ensure compliance and accessibility.  
+1. **User Adoption**
 
-3. **Security and Trust**  
-   - Maintaining robust security protocols for smart contracts and user funds is critical to building trust.  
+   - Educating users on the benefits of decentralized funding and staking mechanisms remains a priority.
+   - We aim to simplify the onboarding process to attract a broader audience.
 
-4. **Sustainability**  
-   - Ensuring a sustainable balance between yield generation and fund distribution to maximize long-term impact.  
+2. **Regulatory Compliance**
+
+   - Navigating global regulatory landscapes, including KYC/AML requirements, to ensure compliance and accessibility.
+
+3. **Security and Trust**
+
+   - Maintaining robust security protocols for smart contracts and user funds is critical to building trust.
+
+4. **Sustainability**
+   - Ensuring a sustainable balance between yield generation and fund distribution to maximize long-term impact.
 
 ## Demo
 
@@ -107,6 +115,8 @@ While our vision is ambitious, we recognize the following challenges and are pre
 ### Note
 
 The **Projects**, **Create Project**, and **Dashboard** pages are currently static and serve mock or demonstration purposes only. These pages are designed to showcase the intended user experience and visual layout of the platform. Please note that they do not yet contain full functionality, as we are still in the development phase. We are actively working on integrating these features, and they will be fully functional in upcoming platform releases. Thank you for your understanding as we continue to build and refine the platform.
+
+The Eduena contract is deployed on [Tenderly](https://tenderly.co/) for testing purposes. Information to simulate balance USDe and VETH for gas fee at [Fund account section](https://github.com/Eduena-Endownment-Fund/eduena-contract?tab=readme-ov-file#deployment)
 
 ### Navigation
 

@@ -186,7 +186,9 @@ export default function WithdrawForm() {
           color="primary"
           type="submit"
           className="w-full block mt-4"
-          isDisabled={account.status !== "connected" || (!amount || parseInt(amount) <= 0)}
+          isDisabled={
+            account.status !== "connected" || !amount || parseInt(amount) <= 0
+          }
         >
           Withdraw
         </Button>
@@ -202,19 +204,37 @@ export default function WithdrawForm() {
         <ModalContent>
           {(onClose) => (
             <>
-              <ModalHeader className="flex flex-col gap-1">Withdraw</ModalHeader>
+              <ModalHeader className="flex flex-col gap-1">
+                Withdraw
+              </ModalHeader>
               <ModalBody>
-                {hash && <div>Transaction Hash: {hash}</div>}
-                {isPending ? "Withdrawing..." : ""}
-                {isConfirming && <div>Waiting for confirmation...</div>}
-                {isConfirmed && (
-                  <>
-                    <div>Transaction confirmed.</div>
-                  </>
+                {hash && (
+                  <div className="text-wrap whitespace-normal bg-gray-100 p-2 rounded break-words">
+                    <strong>Transaction Hash:</strong> {hash}
+                  </div>
                 )}
+
+                {isPending ? (
+                  <div className="mb-4">
+                    <div className="text-blue-500">Withdrawing...</div>
+                  </div>
+                ) : (
+                  ""
+                )}
+                {isConfirming && (
+                  <div className="text-yellow-500 mb-4">
+                    Waiting for confirmation...
+                  </div>
+                )}
+                {isConfirmed && (
+                  <div className="text-green-500 mb-4">
+                    <div>Transaction confirmed.</div>
+                  </div>
+                )}
+
                 {error && (
                   <div
-                    className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative"
+                    className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4"
                     role="alert"
                   >
                     <strong className="font-bold">Error: </strong>
@@ -224,6 +244,7 @@ export default function WithdrawForm() {
                   </div>
                 )}
               </ModalBody>
+
               <ModalFooter>
                 <Button color="primary" variant="light" onPress={onClose}>
                   Close
