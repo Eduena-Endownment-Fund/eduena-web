@@ -70,7 +70,7 @@ export default function Navbar() {
               </div>
             </div>
           </div>
-          <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:flex">
+          <div className="absolute inset-y-0 right-0 hidden items-center pr-2 sm:flex">
             <ConnectButton />
           </div>
         </div>
