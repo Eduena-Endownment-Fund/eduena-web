@@ -20,12 +20,11 @@ Eduena streamlines the processes of project funding, monitoring, and reporting, 
 - [How it Works](#how-it-works)
 - [Roadmap and Challenges](#roadmap-and-challenges)
 - [Demo](#demo)
+- [Screenshots](#demo)
 - [Technical Details](#technical-details)
 - [Team](#team)
 
 ## Problems
-
-![Traditional vs Decentralized Endowment Fund Illustration](image.png)
 
 Endowment Funds are traditionally managed by centralized institutions, which often lack transparency, flexibility, and community involvement. Key problems in the current system include:
 
@@ -48,8 +47,6 @@ Investing in Eduena means supporting a project that has the potential to drive s
 - **Transparency and Governance Dashboard**: Monitor project performance, fund impact, and transactions in real-time with on-chain transparency.
 
 ## How It Works
-
-![How it Works](image.png)
 
 1. **Staking by Donors**  
    Donors stake sUSDe through the Eduena platform. The staked funds are managed as an endowment and invested to generate yield, creating a sustainable resource for funding initiatives.
@@ -110,13 +107,49 @@ While our vision is ambitious, we recognize the following challenges and are pre
 
 [Eduena App](https://eduena.netlify.app)
 
-[Watch the Video Demonstration](https://youtube.com)
+[Watch the Video Demonstration](https://youtu.be/rdNQPTu3Ioc)
 
 ### Note
 
 The **Projects**, **Create Project**, and **Dashboard** pages are currently static and serve mock or demonstration purposes only. These pages are designed to showcase the intended user experience and visual layout of the platform. Please note that they do not yet contain full functionality, as we are still in the development phase. We are actively working on integrating these features, and they will be fully functional in upcoming platform releases. Thank you for your understanding as we continue to build and refine the platform.
 
 The Eduena contract is deployed on [Tenderly](https://tenderly.co/) for testing purposes. Information to simulate balance USDe and VETH for gas fee at [Fund account section](https://github.com/Eduena-Endownment-Fund/eduena-contract?tab=readme-ov-file#deployment)
+
+### Screenshots
+
+Here are some screenshots of the Eduena platform:
+
+#### Deposit
+
+![Deposit](screenshots/deposit.png)
+
+#### Deposit Confirmed
+
+![Deposit Confirmed](screenshots/deposit-confirmed.png)
+
+#### Projects
+
+![Projects](screenshots/projects.png)
+
+#### Create Project
+
+![Create Project](screenshots/create-project.png)
+
+#### Claim Funds
+
+![Claim Funds](screenshots/claim-funds.png)
+
+#### Dashboard
+
+![Dashboard](screenshots/dashboard.png)
+
+#### Withdraw
+
+![Withdraw](screenshots/withdraw.png)
+
+#### Withdraw Confirmed
+
+![Withdraw Confirmed](screenshots/withdraw-confirmed.png)
 
 ### Navigation
 
