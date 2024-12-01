@@ -109,6 +109,8 @@ While our vision is ambitious, we recognize the following challenges and are pre
 
 [Watch the Video Demonstration](https://youtu.be/rdNQPTu3Ioc)
 
+[Slide Presentation](https://docs.google.com/presentation/d/18Y53FnrB0S0qmOaa5DzxulXjmjjXsRafhNUTwqGBjmo/edit?usp=sharing)
+
 ### Note
 
 The **Projects**, **Create Project**, and **Dashboard** pages are currently static and serve mock or demonstration purposes only. These pages are designed to showcase the intended user experience and visual layout of the platform. Please note that they do not yet contain full functionality, as we are still in the development phase. We are actively working on integrating these features, and they will be fully functional in upcoming platform releases. Thank you for your understanding as we continue to build and refine the platform.
