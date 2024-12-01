@@ -44,7 +44,7 @@ export default function Home() {
                   Contact
                 </Link>
                 <Link
-                  href="https://example.com"
+                  href="https://github.com/Eduena-Endownment-Fund/eduena-web"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-lg"
